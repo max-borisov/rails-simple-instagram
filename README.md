@@ -1,5 +1,11 @@
 == README
 
+* Ruby 2.2.2
+* Rails 4.2.3
+
+
+http://www.devwalks.com/lets-build-instagram-in-rails-part-1/
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
