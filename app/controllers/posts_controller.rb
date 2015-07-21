@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :owned_post, only: [:edit, :update, :destroy]
+  before_action :check_access, only: [:edit, :update, :destroy]
 
   def index
     @posts = Post.all
@@ -16,7 +16,7 @@ class PostsController < ApplicationController
 
     if @post.save
       flash[:success] = "Your post has been created!"
-      redirect_to posts_path
+      redirect_to root_path
     else
       flash[:alert] = "Your new post couldn't be created!  Please check the form."
       render :new
@@ -42,7 +42,7 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     flash[:success] = "Your post has been deleted."
-    redirect_to posts_path
+    redirect_to root_path
   end
 
   private
@@ -55,7 +55,7 @@ class PostsController < ApplicationController
     params.require(:post).permit(:image, :caption)
   end
 
-  def owned_post
+  def check_access
     unless current_user == @post.user
       flash[:alert] = "That post doesn't belong to you!"
       redirect_to root_path

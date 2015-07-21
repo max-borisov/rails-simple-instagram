@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_post
+  before_action :set_comment, only: [:destroy]
+  before_action :check_access, only: [:destroy]
 
   def create
     @comment = @post.comments.build(comment_params)
@@ -12,19 +14,15 @@ class CommentsController < ApplicationController
       end
     else
       flash[:alert] = "Check the comment form, something went horribly wrong."
-      render root_path
+      redirect_to root_path
     end
   end
 
   def destroy
-    @comment = @post.comments.find(params[:id])
-
-    if @comment.user_id == current_user.id
-      @comment.delete
-      respond_to do |format|
-        format.html { redirect_to root_path }
-        format.js
-      end
+    @comment.delete
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js
     end
   end
 
@@ -36,5 +34,16 @@ class CommentsController < ApplicationController
 
   def set_post
     @post = Post.find(params[:post_id])
+  end
+
+  def set_comment
+    @comment = @post.comments.find(params[:id])
+  end
+
+  def check_access
+    unless current_user == @comment.user
+      flash[:alert] = "That comment doesn't belong to you !"
+      redirect_to root_path
+    end
   end
 end
