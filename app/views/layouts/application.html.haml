@@ -8,7 +8,7 @@
   %body
     = render 'layouts/navbar'
     .container
-      .row
+      .row.wrapper
         - flash.each do |name, msg|
-          = content_tag :div, msg, class: [:alert, alert_for(name)]
+          = content_tag :div, msg, class: [:alert, alert_for(name), 'alert-big', 'text-center']
         = yield

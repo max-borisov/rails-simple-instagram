@@ -8,6 +8,12 @@ body {
   font-family: proxima-nova, 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 
+.wrapper {
+  max-width: 642px;
+  width: 100%;
+  margin: 0 auto;
+}
+
 /* ## NAVBAR CUSTOMISATIONS ## */
 
 .navbar-brand {
@@ -33,9 +39,6 @@ body {
 
 .posts-wrapper {
   padding-top: 40px;
-  margin: 0 auto;
-  max-width: 642px;
-  width: 100%;
 }
 
 .post {
@@ -73,6 +76,20 @@ body {
 }
 
 .post-bottom {
+  #comment {
+    padding-bottom: 13px;
+
+    a {
+      display :none;
+      color: red;
+    }
+
+    &:hover {
+      a {
+        display :inline;
+      }
+    }
+  }
   .user-name, .comment-content {
     display: inline;
   }
@@ -86,10 +103,10 @@ body {
     font-size: 15px;
   }
   .caption-content {
-    margin-bottom: 7px;
+    margin-bottom: 25px;
   }
   .user-name, .caption-content {
-    display: inline;
+    // display: inline;
   }
   .comment {
     margin-bottom: 7px;
@@ -119,7 +136,7 @@ body {
 }
 
 .comment-like-form {
-  padding-top: 24px;
+  padding: 24px 0;
   margin-top: 13px;
   margin-left: 24px;
   margin-right: 24px;
@@ -144,4 +161,8 @@ body {
 .edit-links {
   margin-top: 20px;
   margin-bottom: 40px;
+}
+
+.alert-big {
+  font-size: 18px;
 }
