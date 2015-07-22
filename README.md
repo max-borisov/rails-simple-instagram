@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/max-borisov/rails-simple-instagram.svg?branch=master)](https://travis-ci.org/max-borisov/rails-simple-instagram) [![Code Climate](https://codeclimate.com/github/max-borisov/rails-simple-instagram/badges/gpa.svg)](https://codeclimate.com/github/max-borisov/rails-simple-instagram) [![Test Coverage](https://codeclimate.com/github/max-borisov/rails-simple-instagram/badges/coverage.svg)](https://codeclimate.com/github/max-borisov/rails-simple-instagram/coverage)
+
 == README
 
 * Ruby 2.2.2
