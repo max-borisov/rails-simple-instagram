@@ -66,5 +66,4 @@ end
 group :production do
   gem 'pg'
   gem 'rails_12factor'
-  gem 'rmagick', '~> 2.15.2'
 end
