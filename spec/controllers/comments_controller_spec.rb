@@ -42,7 +42,7 @@ describe CommentsController do
           expect(assigns(:comment)).to be_a_new(Comment)
         end
 
-        it "redirects to the front page with error message" do
+        it 'redirects to the front page with error message' do
           expect(response).to redirect_to(root_path)
           expect(flash[:alert]).to eq('Check the comment form, something went horribly wrong.')
         end
@@ -54,12 +54,12 @@ describe CommentsController do
 
       it 'destroys the requested comment' do
         expect {
-          delete :destroy, { id: comment.to_param, post_id: user_post.to_param }
+          delete :destroy, id: comment.to_param, post_id: user_post.to_param
         }.to change(Comment, :count).by(-1)
       end
 
       it 'redirects to the front page' do
-        delete :destroy, { id: comment.to_param, post_id: user_post.to_param }
+        delete :destroy, id: comment.to_param, post_id: user_post.to_param
         expect(response).to redirect_to(root_path)
       end
 
@@ -68,7 +68,7 @@ describe CommentsController do
           user2 = create(:user, email: Faker::Internet.email, name: Faker::Internet.name)
           post2 = create(:post, user: user2)
           comment2 = create(:comment, user: user2, post: post2)
-          delete :destroy, { id: comment2.to_param, post_id: post2.to_param }
+          delete :destroy, id: comment2.to_param, post_id: post2.to_param
           expect(response).to redirect_to(root_path)
           expect(flash[:alert]).to eq("That comment doesn't belong to you !")
         end

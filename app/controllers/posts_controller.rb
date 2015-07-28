@@ -15,10 +15,10 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
 
     if @post.save
-      flash[:success] = "Your post has been created!"
+      flash[:success] = 'Your post has been created!'
       redirect_to root_path
     else
-      flash[:alert] = "Your new post couldn't be created!  Please check the form."
+      flash[:alert] = 'Your new post couldn\'t be created!  Please check the form.'
       render :new
     end
   end
@@ -31,17 +31,17 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      flash[:success] = "Post updated."
+      flash[:success] = 'Post updated.'
       redirect_to post_path(@post)
     else
-      flash[:alert] = "Update failed.  Please check the form."
+      flash[:alert] = 'Update failed. Please check the form.'
       render :edit
     end
   end
 
   def destroy
     @post.destroy
-    flash[:success] = "Your post has been deleted."
+    flash[:success] = 'Your post has been deleted.'
     redirect_to root_path
   end
 
@@ -56,9 +56,8 @@ class PostsController < ApplicationController
   end
 
   def check_access
-    unless current_user == @post.user
-      flash[:alert] = "That post doesn't belong to you!"
-      redirect_to root_path
-    end
+    return if current_user == @post.user
+    flash[:alert] = 'That post doesn\'t belong to you!'
+    redirect_to root_path
   end
 end

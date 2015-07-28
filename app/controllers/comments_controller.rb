@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
         format.js
       end
     else
-      flash[:alert] = "Check the comment form, something went horribly wrong."
+      flash[:alert] = 'Check the comment form, something went horribly wrong.'
       redirect_to root_path
     end
   end
@@ -41,9 +41,8 @@ class CommentsController < ApplicationController
   end
 
   def check_access
-    unless current_user == @comment.user
-      flash[:alert] = "That comment doesn't belong to you !"
-      redirect_to root_path
-    end
+    return if current_user == @comment.user
+    flash[:alert] = "That comment doesn't belong to you !"
+    redirect_to root_path
   end
 end
