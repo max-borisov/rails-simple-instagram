@@ -1,37 +1,38 @@
+Rails simple instagram clone
+===
+
 [![Build Status](https://travis-ci.org/max-borisov/rails-simple-instagram.svg?branch=master)](https://travis-ci.org/max-borisov/rails-simple-instagram) [![Code Climate](https://codeclimate.com/github/max-borisov/rails-simple-instagram/badges/gpa.svg)](https://codeclimate.com/github/max-borisov/rails-simple-instagram) [![Test Coverage](https://codeclimate.com/github/max-borisov/rails-simple-instagram/badges/coverage.svg)](https://codeclimate.com/github/max-borisov/rails-simple-instagram/coverage)
 
-== README
+## [Demo on heroku](https://rails-simple-instagram.herokuapp.com/)
 
+## Description
+Simple instagram clone app based on Rails framework.
+
+Inspired by [devwalks tutorial](http://www.devwalks.com/lets-build-instagram-in-rails-part-1/)
+
+### Functionality
+* Create new account, login in to system
+* Create/delete comments
+
+## Reqirements
 * Ruby 2.2.2
 * Rails 4.2.3
 
+## Installation
+* Clone the repo
+* Run `rake db:migrate`
+* Run `rake db:seed` to fill in the database
+* Start the server `rails s -p 9595`
+* Go to [http://localhost:9595](http://localhost:9595) and have a fun
 
-http://www.devwalks.com/lets-build-instagram-in-rails-part-1/
+There are 3 predefined users accounts:
+* `tom@gmail.com`
+* `jack@gmail.com`
+* `matt@gmail.com`
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The password is **11111111**
 
-Things you may want to cover:
+## Testing
+* Run `rspec spec/`
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
-# rails-simple-instagram
+![Simple ToDo lists preview](https://github.com/max-borisov/rails-simple-instagram/app-preview.png)
