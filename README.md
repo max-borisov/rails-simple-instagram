@@ -35,4 +35,4 @@ The password is **11111111**
 ## Testing
 * Run `rspec spec/`
 
-![Simple ToDo lists preview](https://github.com/max-borisov/rails-simple-instagram/app-preview.png)
+![Simple ToDo lists preview](https://github.com/max-borisov/rails-simple-instagram/blob/master/app-preview.png)
